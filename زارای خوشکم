@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بۆ زارای خوشکم 🌸</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e8f5e9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .card {
+            background-color: white;
+            padding: 40px 30px;
+            border-radius: 24px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 450px;
+            width: 90%;
+            border: 2px solid #c8e6c9;
+        }
+
+        .title {
+            color: #2e7d32;
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #424242;
+            font-size: 22px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            font-size: 18px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn-green {
+            background-color: #4caf50;
+            color: white;
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .btn-red {
+            background-color: #f44336;
+            color: white;
+            box-shadow: 0 5px 15px rgba(244, 67, 54, 0.3);
+        }
+
+        .btn-orange {
+            background-color: #ff9800;
+            color: white;
+            box-shadow: 0 5px 15px rgba(255, 152, 0, 0.3);
+        }
+
+        .btn:active {
+            transform: scale(1.1);
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card" id="mainCard">
+        <div class="title">بۆ زارای خوشکم 🌸</div>
+        <h2>زارا منت خۆش دەوێ؟ 🥺</h2>
+        <div class="btn-group">
+            <button class="btn btn-green" onclick="step1('yes')">بەڵێ</button>
+            <button class="btn btn-red" onclick="step1('no')">نەخێر</button>
+        </div>
+    </div>
+
+    <script>
+        // دوای وڵامی یەکەم
+        function step1(answer) {
+            const card = document.getElementById('mainCard');
+            let text = "";
+            if (answer === 'yes') {
+                text = "ئەوجە من چ بکەم 😂";
+            } else {
+                text = "درۆی دەکەی 😤";
+            }
+
+            card.innerHTML = `
+                <div class="fade-in">
+                    <div class="title">زارا خان...</div>
+                    <h2 style="color: #d32f2f; font-size: 24px; font-weight: bold;">${text}</h2>
+                    <hr style="border: 1px dashed #c8e6c9; margin: 20px 0;">
+                    <h2>بچین چای بخۆین لەماری کابرای قاتی سەرێ؟ ☕</h2>
+                    <div class="btn-group">
+                        <button class="btn btn-green" onclick="step2()">بەڵێ</button>
+                        <button class="btn btn-green" onclick="step2()">بەڵێ</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        // دوای داگرتنی یەکێک لە بەڵێیەکان
+        function step2() {
+            const card = document.getElementById('mainCard');
+            card.innerHTML = `
+                <div class="fade-in">
+                    <div class="title">تەواو کەواتە! 😉</div>
+                    <h2 style="color: #2e7d32; font-size: 24px; font-weight: bold;">ئەو شەو دێم 😎🙌</h2>
+                    <p style="font-size: 18px; color: #555; font-weight: bold; margin: 20px 0;">
+                        📍 دوا پرسیار: ئاخیری تەقەی لێ هەر دەستێنم رازی دەکەم.
+                    </p>
+                    <div class="btn-group" style="margin-top: 30px;">
+                        <button class="btn btn-green" onclick="step3('wait')">چاوەڕێی ئەو ڕۆژەم</button>
+                        <button class="btn btn-orange" onclick="step3('not_seen')">نەت دیت</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        // قۆناغی کۆتایی
+        function step3(finalAnswer) {
+            const card = document.getElementById('mainCard');
+            if (finalAnswer === 'wait') {
+                card.innerHTML = `
+                    <div class="fade-in">
+                        <div class="title">بژیت زارا خان! 👏✨</div>
+                        <h2>دەی ئامادەبە، کاتەکە نزیک بووەوە! 😂🔥☕</h2>
+                    </div>
+                `;
+            } else {
+                card.innerHTML = `
+                    <div class="fade-in">
+                        <div class="title">ئەرێ وەڵا! 😂</div>
+                        <h2 style="color: #e65100;">دەی کچێ چاوت کڵۆڵ نەبێ چۆن نەتدیوە! 😂🏃‍♂️💨</h2>
+                    </div>
+                `;
+            }
+        }
+    </script>
+
+</body>
+</html>
